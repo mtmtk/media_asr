@@ -1,0 +1,239 @@
+#!/usr/bin/perl
+#**********************************************************************
+#
+#  drawspec: gnuplotで音声波形，フィルタバンク出力，MFCCを描画
+#
+#
+#
+# 使用法
+#    drawspec file.wav [png file.png]
+#
+#  入力
+#          file.wav: 入力信号波形データファイル
+#                    サンプリング周波数は16kHz, 振幅値は16bit符合付整数
+#                png: PNGファイルに保存する
+#           file.png: PNGファイル名
+#
+#
+#  作成履歴
+#    初版                                      2013年10月19日 高木一幸
+#    第2版                                     2013年12月03日 高木一幸
+#    wav形式ファイル用に改造                   2014年08月31日 高木一幸
+#    オプションを減らして単純化                2014年10月28日 高木一幸
+#    "unset multiplot\n"を追加(窓をリサイズしなくても表示されるようになった)
+#                                              2015年10月20日 高木一幸
+#    出力file形式をPNGに変更                   2018年10月07日 高木一幸
+#
+#**********************************************************************
+#----------------------------------------------------------------------
+# homeディレクトリのパスを設定
+#---------------------------------------------------------------------
+$home = $ENV{HOME};
+
+#----------------------------------------------------------------------
+# ファイル名処理用モジュール
+#---------------------------------------------------------------------
+use File::Spec;
+
+#----------------------------------------------------------------------
+# コマンドライン引数の検査
+#----------------------------------------------------------------------
+if(0 > $#ARGV) {
+    print "\n";
+    print "使用法\n";
+    print "   drawspec file.wav [png file.png]\n";
+    print "\n";
+    print "  file.wav: 入力信号波形データファイル\n";
+    print "            サンプリング周波数は16kHz, 振幅値は16bit符合付整数\n";
+    print "       png: PNGファイルに保存する\n";
+    print "  file.png: PNGファイル名\n";
+    print "\n";
+    exit;
+}
+
+# 音声波形ファイル
+$adfile = shift @ARGV;
+
+# オプション引数の処理
+$mode = "all";
+$palette = "color";
+while(0 <= $#ARGV) {
+    $arg = shift @ARGV;
+    if("png" eq $arg) {
+	if(0 > $#ARGV) {
+	    print "draw: no PNG file name is specified.\n";
+	    exit;
+	}
+	$fname = shift @ARGV;
+    } else {
+	printf "draw: invalid option.\n";
+	exit;
+    }
+}
+
+#----------------------------------------------------------------------
+# 描画用データを記録する一時ファイル
+#----------------------------------------------------------------------
+@fnameparts = File::Spec->splitdir($adfile);
+$ftail = pop @fnameparts;
+$wavtxtfile   = "./_${ftail}.txt";
+$fbfile       = "./_${ftail}.fb";
+$mfccfile     = "./_${ftail}.mfcc";
+$mfcctxtfile  = "./_${ftail}.mfcc.txt";
+
+#----------------------------------------------------------------------
+# gnuplot用コマンドファイルを生成
+#----------------------------------------------------------------------
+$cmdfile = "_command.gnuplot";
+
+#----------------------------------------------------------------------
+# 音声波形振幅データを生成
+#----------------------------------------------------------------------
+system("$home/asr/sound/ad2txt16 < $adfile > $wavtxtfile");
+
+#----------------------------------------------------------------------
+# フィルタバンク分析
+#----------------------------------------------------------------------
+$rc = `$home/asr/wrecog/program/fb $adfile $fbfile`;
+if(0 != $rc) {
+    printf STDERR "draw: error in MFCC analysis (fb).\n";
+    printf STDERR "      output was not generated.\n";
+    exit;
+}
+
+#----------------------------------------------------------------------
+# MFCC分析
+#----------------------------------------------------------------------
+if(("mfcc" eq $mode)||("all" eq $mode)) {
+    $rc = `$home/asr/wrecog/program/mfccf $adfile $mfccfile`;
+    if(0 != $rc) {
+	printf STDERR "draw: error in MFCC analysis (mfcc).\n";
+	printf STDERR "      output was not generated.\n";
+	exit;
+    }
+    $rc = `$home/asr/wrecog/program/prtmfcc $mfccfile > $mfcctxtfile`;
+}
+
+
+#----------------------------------------------------------------------
+# gnuplot用コマンドファイルを生成
+#----------------------------------------------------------------------
+# コマンドファイル生成
+open(CMD,">$cmdfile")
+    or die "draw: error in open gnuplot command file\n";
+
+# PNGファイルに出力する場合
+if("" ne $fname) {
+    print CMD "set term png\n";
+    print CMD "set out \"$fname\"\n";
+}
+
+# 複数のグラフを1枚にプロットする
+print CMD "set multiplot\n";
+
+
+#------------------------------------
+# 音声波形とフィルタバンク出力
+#------------------------------------
+if("fb" eq $mode) {
+  # 音声波形
+    print CMD "set lmargin at screen 0.075\n";
+    print CMD "set rmargin at screen 0.9\n";
+    print CMD "set tmargin at screen 0.95\n";
+    print CMD "set bmargin at screen 0.65\n";
+    print CMD "unset key\n";
+    print CMD "unset ytics\n";
+    print CMD "set title \"$adfile\" offset 0,-0.5\n";
+    print CMD "set ylabel \"Waveform\"\n";
+    print CMD "set xtics offset 0,+0.5\n";
+    print CMD "plot \"$wavtxtfile\" with lines\n";
+    print CMD "unset title\n";
+
+    # フィルタバンク出力
+    print CMD "set lmargin at screen 0.075\n";
+    print CMD "set rmargin at screen 0.9\n";
+    print CMD "set tmargin at screen 0.6\n";
+    print CMD "set bmargin at screen 0.1\n";
+    print CMD "set ylabel \"Filterbank Output\"\n";
+    print CMD "set yrange[1:28]\n";
+    print CMD "set isosample 128,128\n";
+    print CMD "set ytics\n";
+    print CMD "unset key\n";
+    print CMD "unset surface\n";
+    print CMD "set pm3d at b\n";
+    print CMD "set view map\n";
+    print CMD "set xtics offset 0,+0.7\n";
+    print CMD "set palette color\n";
+    print CMD "splot \"$fbfile\" using (\$1):(\$2):(log(\$3))\n";
+}
+
+#------------------------------------
+# 音声波形とフィルタバンク出力とMFCC
+#------------------------------------
+# 音声波形
+print CMD "set lmargin at screen 0.075\n";
+print CMD "set rmargin at screen 0.9\n";
+print CMD "set tmargin at screen 0.95\n";
+print CMD "set bmargin at screen 0.85\n";
+print CMD "unset key\n";
+print CMD "unset ytics\n";
+print CMD "set title \"$adfile\" offset 0,-0.5\n";
+print CMD "set ylabel \"Waveform\"\n";
+print CMD "set xtics offset 0,+0.5\n";
+print CMD "plot \"$wavtxtfile\" with lines\n";
+print CMD "unset title\n";
+
+# フィルタバンク出力
+print CMD "set lmargin at screen 0.075\n";
+print CMD "set rmargin at screen 0.9\n";
+print CMD "set tmargin at screen 0.8\n";
+print CMD "set bmargin at screen 0.45\n";
+print CMD "set ylabel \"Filterbank Output\"\n";
+print CMD "set yrange[1:28]\n";
+print CMD "set isosample 128,128\n";
+print CMD "set ytics\n";
+print CMD "unset key\n";
+print CMD "unset surface\n";
+print CMD "set pm3d at b\n";
+print CMD "set view map\n";
+print CMD "set xtics offset 0,+0.7\n";
+print CMD "set palette color\n";
+print CMD "splot \"$fbfile\" using (\$1):(\$2):(log(\$3))\n";
+
+# MFCC
+print CMD "set lmargin at screen 0.075\n";
+print CMD "set rmargin at screen 0.9\n";
+print CMD "set tmargin at screen 0.4\n";
+print CMD "set bmargin at screen 0.1\n";
+print CMD "set xlabel \"Time [ms]\"\n";
+print CMD "set ylabel \"MFCC\"\n";
+print CMD "set yrange[1:20]\n";
+print CMD "set isosample 128,128\n";
+print CMD "unset key\n";
+print CMD "unset surface\n";
+print CMD "set pm3d at b\n";
+print CMD "set view map\n";
+print CMD "set palette color\n";
+print CMD "set xtics offset 0,+0.7\n";
+print CMD "splot \"$mfcctxtfile\"\n";
+print CMD "unset multiplot\n";
+
+# 画面に出力する場合は描画したままポーズ
+if("" eq $fname) {
+    print CMD "pause -1\n";
+}
+
+#----------------------------------------------------------------------
+# gnuplotで描画
+#----------------------------------------------------------------------
+system("gnuplot $cmdfile");
+
+
+#----------------------------------------------------------------------
+# 描画用データ用一時ファイルやgnuplot用コマンドファイルを削除
+#----------------------------------------------------------------------
+system("\\rm -f $wavtxtfile");
+system("\\rm -f $fbfile");
+system("\\rm -f $mfccfile");
+system("\\rm -f $mfcctxtfile");
+system("\\rm -f $cmdfile");

@@ -1,0 +1,34 @@
+#!/bin/tcsh
+#************************************************************
+#
+#  単語認識率の評価を行う
+#
+#
+#                                    2013年11月03日 高木一幸
+#
+#************************************************************
+echo "Evaluation start.  Wait a moment."
+
+#
+# 認識結果の記録
+#
+foreach w ( `cat lib/wordlist` )
+    set resultFile = result/${w}.result
+    if( -e $resultFile ) then
+        \cp $resultFile ${resultFile}_backup
+	\rm $resultFile
+    endif
+    touch $resultFile
+    foreach f ( `cat lib/${w}.list` )
+	recogf lib/HMMList $f >> $resultFile
+    end
+end
+
+#
+# 認識率の計算
+#
+foreach w ( `cat lib/wordlist` )
+    set resultFile = result/${w}.result
+    set n_correct = `grep -c $w $resultFile`
+    echo $w, $n_correct
+end

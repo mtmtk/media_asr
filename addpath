@@ -1,0 +1,39 @@
+#!/bin/tcsh
+#-------------------------------------------------------------
+#
+# 音声認識実験用にコマンドパスを.cshrcに追加する
+# 併せて，コマンドプロンプトの形式，WaveSurferの設定を変更。
+#
+#
+# 変更履歴
+#                                     2013年10月25日 高木一幸
+#                       rehashを追加  2013年11月09日 高木一幸
+#        コマンドプロンプトの形式変更 2013年12月02日 高木一幸
+#              WaveSurferの設定を追加 2014年10月01日 高木一幸
+# コマンドプロンプトの形式変更をやめる 2023年10月20日 高木一幸
+#
+#-------------------------------------------------------------
+if( -e $home/.cshrc ) then
+  \cp -f $home/.cshrc $home/.cshrc_backup_asr
+  echo "old file $home/.cshrc copied to $home/.cshrc_backup_asr."
+else
+  \touch $home/.cshrc
+  echo "$home/.cshrc created."
+endif
+echo "" >> $home/.cshrc
+echo "# -------------------------------------------------------" >> $home/.cshrc
+echo "# command path extention for Speech Recogntion Experiment" >> $home/.cshrc
+echo "# -------------------------------------------------------" >> $home/.cshrc
+echo "set path = ( "\$path" . $home/asr/sound $home/asr/drill $home/asr/wrecog/program )"  >> $home/.cshrc
+echo "" >> $home/.cshrc
+echo "# alias" >> $home/.cshrc
+alias "cp            'cp -ip'" >> $home/.cshrc
+alias "mv            'mv -i'" >> $home/.cshrc
+alias "rm            'rm -i'" >> $home/.cshrc
+xsource $home/.cshrc
+rehash
+echo "addpath complete.  See ~/.cshrc for the result."
+
+# WaveSurferの設定
+cp -R $home/asr/.wavesurfer $home
+

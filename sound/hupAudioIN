@@ -1,0 +1,9 @@
+#!/bin/tcsh
+#
+# audioINにhupシグナルを送る
+# 
+# 2014年01月06日 緒形剛
+#
+
+set pid = `ps -u $USER | grep audioIN | awk '{print $1}'`
+kill -1 ${pid}

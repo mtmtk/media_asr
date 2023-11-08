@@ -1,0 +1,22 @@
+#!/usr/bin/gnuplot
+#----------------------------------------------------------------
+#
+# メディア情報学実験「音声認識」
+#
+# HMMによる認識結果の描画プログラム
+#
+#  初版                                     2013年10月23日 高木一幸
+#  2014年度用に改訂                          2014年10月28日 高木一幸
+#  出力をPNGに変更                           2018年10月07日 高木一幸
+#  コマンド名および出力ファイル名をdrawRに変更  2023年10月13日 高木一幸
+#
+#----------------------------------------------------------------
+set xlabel "log P(O | HMM1)"
+set ylabel "log P(O | HMM2)"
+plot "data1.result" lt 1 lw 2 pt 8 title "Category 1",\
+     "data2.result" lt 3 lw 2 pt 12 title "Category 2",\
+     x lt 7 lw 2 title "Discrimination Border"
+pause -1
+set terminal png
+set out "drawR.png"
+replot

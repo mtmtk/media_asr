@@ -1,0 +1,90 @@
+set wsurf::Info(Prefs,outDev) {default}
+set wsurf::Info(Prefs,inDev) {default}
+set wsurf::Info(Prefs,PrintCmd) {lpr $FILE}
+set wsurf::Info(Prefs,PrintPVCmd) {ghostview $FILE}
+set wsurf::Info(Prefs,recordLimit) {600}
+set wsurf::Info(Prefs,linkFile) {0}
+set wsurf::Info(Prefs,autoScroll) {None}
+set wsurf::Info(Prefs,maxPixelsPerSecond) {10000.0}
+set wsurf::Info(Prefs,tmpDir) {/tmp}
+set wsurf::Info(Prefs,icons) {beg play playloop pause stop record close}
+set wsurf::Info(Prefs,popupEvent) {Control-Button-1 Button-3}
+set wsurf::Info(Prefs,defaultConfig) {Show dialog}
+set wsurf::Info(Prefs,timeFormat) {hms.ddd}
+set wsurf::Info(Prefs,showLevel) {1}
+set wsurf::Info(Prefs,defRate) {16000}
+set wsurf::Info(Prefs,defEncoding) {Lin16}
+set wsurf::Info(Prefs,defChannels) {1}
+set wsurf::Info(Prefs,createWidgets) {separate}
+set wsurf::Info(Prefs,rawFormats) {.alw 8000 Alaw 1 "" 0}
+set wsurf::Info(Prefs,prefsWithConf) {0}
+set wsurf::Info(Prefs,yaxisWidth) {40}
+set wsurf::Info(Prefs,theme) {default}
+set wsurf::Info(Prefs,beg) {1}
+set wsurf::Info(Prefs,play) {1}
+set wsurf::Info(Prefs,playall) {0}
+set wsurf::Info(Prefs,playloop) {1}
+set wsurf::Info(Prefs,pause) {1}
+set wsurf::Info(Prefs,stop) {1}
+set wsurf::Info(Prefs,record) {1}
+set wsurf::Info(Prefs,close) {1}
+set wsurf::Info(Prefs,end) {0}
+set wsurf::Info(Prefs,print) {0}
+set wsurf::Info(Prefs,zoomin) {0}
+set wsurf::Info(Prefs,zoomout) {0}
+set wsurf::Info(Prefs,zoomall) {0}
+set wsurf::Info(Prefs,zoomsel) {0}
+
+wsurf::setTheme {default}
+wsurf::_selectOutDevice dummy {default}
+wsurf::_selectInDevice dummy {default}
+
+set wsurf::Info(PluginActive,dataplot) 1
+set wsurf::Info(PluginActive,analysis) 1
+set wsurf::Info(PluginActive,timeaxis) 1
+set wsurf::Info(PluginActive,transcription_format_htk) 1
+set wsurf::Info(PluginActive,transcription_format_ws) 1
+set wsurf::Info(PluginActive,transcription) 1
+set wsurf::Info(PluginActive,transcription_format_isis) 1
+set wsurf::Info(PluginActive,transcription_format_phondat) 1
+set wsurf::Info(PluginActive,transcription_format_timit) 1
+set wsurf::Info(PluginActive,transcription_format_waves) 1
+set ::Info(Prefs,PlaySelection) {F3}
+set ::Info(Prefs,PlayCursor) {F1}
+set ::Info(Prefs,PlayAll) {F2}
+set ::Info(Prefs,PlayVisible) {F5}
+set ::Info(Prefs,PlayLoop) {F8}
+set ::Info(Prefs,LockMessageBar) {F9}
+set ::Info(Prefs,PlayPause) {space}
+set ::Info(Prefs,PlayStop) {F6}
+set ::Info(Prefs,RecStop) {Control-space}
+set ::Info(Prefs,Stop) {period}
+set ::Info(Prefs,x0) {}
+set ::Info(Prefs,Revert) {Control-r}
+set ::Info(Prefs,Chooser) {}
+set ::Info(Prefs,SaveSelection) {}
+set ::Info(Prefs,ShowConsole) {}
+set ::Info(Prefs,Print) {}
+set ::Info(Prefs,Prefs) {}
+set ::Info(Prefs,x1) {}
+set ::Info(Prefs,MixPaste) {Control-m}
+set ::Info(Prefs,SelectAll) {Control-a}
+set ::Info(Prefs,SelectNone) {Control-b}
+set ::Info(Prefs,SelectoNew) {}
+set ::Info(Prefs,ZeroXAdjust) {F4}
+set ::Info(Prefs,x2) {}
+set ::Info(Prefs,Convert) {}
+set ::Info(Prefs,Amplify) {}
+set ::Info(Prefs,Fade) {Control-d}
+set ::Info(Prefs,Normalize) {}
+set ::Info(Prefs,Echo) {}
+set ::Info(Prefs,MixChan) {}
+set ::Info(Prefs,Invert) {}
+set ::Info(Prefs,Reverse) {}
+set ::Info(Prefs,Silence) {}
+set ::Info(Prefs,RemoveDC) {}
+set ::Info(Prefs,x3) {}
+set ::Info(Prefs,ZoomIn) {Control-plus}
+set ::Info(Prefs,ZoomOut) {Control-minus}
+set ::Info(Prefs,ZoomFullOut) {F11}
+set ::Info(Prefs,ZoomToSelection) {F12}

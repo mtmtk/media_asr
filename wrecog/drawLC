@@ -1,0 +1,21 @@
+#----------------------------------------------------------------
+#
+# メディア情報学実験「音声認識」
+#
+# 単語HMMの学習曲線の描画プログラム
+#
+#                                          2014年10月28日 高木一幸
+#
+#----------------------------------------------------------------
+unset key
+set xlabel "Re-estimation Count"
+set ylabel "Log Probability"
+
+# 以下2行の "rei" を自分の描く学習曲線の単語名に変更する．
+set title  "Learning Curve of rei.hmm"
+plot "log/rei.log" using 3 with lines
+
+pause -1
+set terminal png
+set out "LC.png"
+replot
