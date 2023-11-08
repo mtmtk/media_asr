@@ -63,7 +63,7 @@ void fb2mfcc(int n_frame,                /* フレーム数                 */
     for(i=1; i<=Q; i++) {
       x = (double)i*pi_factor;   /* (3.4)式のcosの変数のπi/P */
       for(j = 1; j <= P; j++){
-        c[i_frame][i-1] += log(m[i_frame][j-1]) * cos((M_PI * i) / (double)P * (j - 0.5));
+        c[i_frame][i-1] += mfnorm * log(m[i_frame][j-1]) * cos(pi_factor * i * (j - 0.5));
       }
       /* fill in blank */
     }

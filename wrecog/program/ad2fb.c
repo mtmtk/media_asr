@@ -202,14 +202,14 @@ void ad2fb(int n_frame,                  /* フレーム数               */
       m[i_frame][j] = 0;
       Aj = 0;
       for(k=klo[j]; k<kc[j]; k++) {
-	W_kj = (float)(k - klo[j]) / (float)(kc[j] - klo[j]) /* fill in blank */;
-	m[i_frame][j] += W_kj * X[k] * X[k] /* fill in blank */;
-	Aj += W_kj /* fill in blank */;
+	      W_kj = (float)(k - klo[j]) / (float)(kc[j] - klo[j]) /* fill in blank */;
+	      m[i_frame][j] += W_kj * X[k] * X[k] /* fill in blank */;
+	      Aj += W_kj /* fill in blank */;
       }
       for(k=kc[j]; k<=khi[j]; k++) {
-	W_kj = (float)(khi[j] - k) / (float)(khi[j] - kc[j]) /* fill in blank */;
-	m[i_frame][j] += W_kj * X[k] * X[k] /* fill in blank */;
-	Aj += W_kj /* fill in blank */;
+	      W_kj = (float)(khi[j] - k) / (float)(khi[j] - kc[j]) /* fill in blank */;
+	      m[i_frame][j] += W_kj * X[k] * X[k] /* fill in blank */;
+	      Aj += W_kj /* fill in blank */;
       }
       /* フィルタの面積が等しくなるように正規化 */
       m[i_frame][j] /= Aj;
