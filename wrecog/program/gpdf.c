@@ -34,11 +34,15 @@ double gpdf(int D,          /* 観測ベクトルo(t)の次数  */
   sum = 0.0 ;
   prod = 1.0 ;
   for(d=0; d<D; d++) {
-    /* fill in blank */;
+    /* fill in blank */
+    prod *= 2.0 * M_PI * sigma2[d];
+    diff = o[d] - mu[d];
+    sum += diff * diff / sigma2[d];
   }
 
-  /* fill in blank */;
-  result = exp(sum)/prod;
+  /* fill in blank */
+  sum /= -2.0;
+  result = exp(sum)/sqrt(prod);
 
   return (result);
 }

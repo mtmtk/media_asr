@@ -106,7 +106,7 @@ int baumWelch(unsigned int N,            /* HMMの状態数               */
     /*------------------------------------
       forward確率αを計算
     ------------------------------------*/
-    prob_forward = /* fill in blank */;
+    prob_forward = forward(N,M,T,O,a,b,pi,alpha);/* fill in blank */;
     prob = prob_forward;
 
     /*--------------------------------------
@@ -139,13 +139,13 @@ int baumWelch(unsigned int N,            /* HMMの状態数               */
     /*------------------------------------
       backward確率βを計算
     ------------------------------------*/
-    prob_backward = /* fill in blank */;
+    prob_backward = backward(N,M,T,O,a,b,pi,beta);/* fill in blank */;
 
     /*------------------------------------
       πi を再推定
     ------------------------------------*/
     for(i=0; i<N; i++)
-      pi[i] = /* fill in blank */;
+      pi[i] = (alpha[0][i] * beta[0][i]) / prob_backward/* fill in blank */;
 
     /*------------------------------------
       A (a_ij) を再推定
@@ -154,6 +154,10 @@ int baumWelch(unsigned int N,            /* HMMの状態数               */
       for(j=0; j<N; j++) {
 	sum1 = sum2 = 0.0;
         /* fill in blank */
+        for(t=0; t<T-1; t++) {
+          sum1 += alpha[t][i] * a[i][j] * b[j][O[t+1]] * beta[t+1][j];
+          sum2 += alpha[t][i] * beta[t][j];
+        }
         a[i][j] = sum1/sum2;
       }
     }
@@ -165,6 +169,10 @@ int baumWelch(unsigned int N,            /* HMMの状態数               */
       for(k=0; k<M; k++) {
 	sum1 = sum2 = 0;
         /* fill in blamk */
+        for(t=0; t<T-1; t++){
+          sum1 += ((V[k] == O[t]) ? 1: 0) * alpha[t][j] * beta[t][j];
+          sum2 += alpha[t][j] * beta[t][j];
+        }
         b[j][k] = sum1/sum2;
       }
     }

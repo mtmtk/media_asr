@@ -41,7 +41,7 @@ double backward(unsigned int N,          /* HMMの状態数              */
     for(i=0; i<N; i++) {
       beta[t][i] = 0;
       for(j=0; j<N; j++) {
-	beta[t][i] += /* fill in blank */;
+	beta[t][i] += a[i][j] * b[j][O[t+1]] * beta[t+1][j]/* fill in blank */;
       }
     }
   }
@@ -51,6 +51,9 @@ double backward(unsigned int N,          /* HMMの状態数              */
   ------------------------------------*/
   prob = 0.0;
   /* fill in blank */
+  for(i=0; i<N; i++) {
+    prob += pi[i] * b[i][O[0]] * beta[0][i];
+  }
 
   return prob;
 }
