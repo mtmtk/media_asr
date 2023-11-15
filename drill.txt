@@ -22,3 +22,7 @@ n2= 3
 b77:~/asr/drill> drillR paramHMM1.txt paramHMM2.txt data2.list > data2.result
 n1= 12
 n2= 88
+
+
+b77:~/asr/wrecog> drillG sample/sampleG.hmm sample/sampleG.mfcc
+log likelihood= -3.818172e+02
