@@ -1,0 +1,14 @@
+b71:~/asr/wrecog> countCorr
+Evaluation start.  Wait a moment.
+ichigatsu, 10
+nigatsu, 10
+saNgatsu, 10
+shigatsu, 10
+gogatsu, 10
+rokugatsu, 10
+shichigatsu, 10
+hachigatsu, 10
+kugatsu, 10
+juugatsu, 10
+juuichigatsu, 10
+juunigatsu, 10

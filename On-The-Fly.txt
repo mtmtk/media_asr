@@ -1,0 +1,252 @@
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14485.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 8月 (hachigatsu)= -2076.991842
+ 2. 3月 (saNgatsu)= -2133.660473
+ 3. 9月 (kugatsu)= -2207.149949
+ 4. 2月 (nigatsu)= -2237.029828
+ 5. 4月 (shigatsu)= -2249.327689
+ 6. 10月 (juugatsu)= -2266.489391
+ 7. 5月 (gogatsu)= -2295.525325
+ 8. 12月 (juunigatsu)= -2299.554906
+ 9. 6月 (rokugatsu)= -2317.818928
+10. 11月 (juuichigatsu)= -2356.008805
+11. 1月 (ichigatsu)= -2390.251619
+12. 7月 (shichigatsu)= -2429.784337
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14504.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 8月 (hachigatsu)= -2599.205775
+ 2. 12月 (juunigatsu)= -2695.613196
+ 3. 1月 (ichigatsu)= -2701.260758
+ 4. 3月 (saNgatsu)= -2737.276956
+ 5. 10月 (juugatsu)= -2775.561388
+ 6. 11月 (juuichigatsu)= -2811.037120
+ 7. 9月 (kugatsu)= -2838.614412
+ 8. 4月 (shigatsu)= -2914.758522
+ 9. 5月 (gogatsu)= -2936.175117
+10. 2月 (nigatsu)= -2937.956584
+11. 7月 (shichigatsu)= -3015.545064
+12. 6月 (rokugatsu)= -3038.414869
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14524.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 3月 (saNgatsu)= -5254.766756
+ 2. 5月 (gogatsu)= -5468.875068
+ 3. 8月 (hachigatsu)= -5540.065905
+ 4. 9月 (kugatsu)= -5752.712433
+ 5. 2月 (nigatsu)= -6157.150657
+ 6. 6月 (rokugatsu)= -6265.446237
+ 7. 1月 (ichigatsu)= -6301.935442
+ 8. 11月 (juuichigatsu)= -6621.303404
+ 9. 7月 (shichigatsu)= -6625.383910
+10. 4月 (shigatsu)= -6805.548985
+11. 10月 (juugatsu)= -6807.441871
+12. 12月 (juunigatsu)= -7055.183022
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14593.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 8月 (hachigatsu)= -4697.854004
+ 2. 1月 (ichigatsu)= -4818.789302
+ 3. 4月 (shigatsu)= -4901.754090
+ 4. 10月 (juugatsu)= -4973.770450
+ 5. 7月 (shichigatsu)= -5056.638983
+ 6. 9月 (kugatsu)= -5163.874367
+ 7. 12月 (juunigatsu)= -5219.533984
+ 8. 3月 (saNgatsu)= -5304.542705
+ 9. 11月 (juuichigatsu)= -5316.311438
+10. 2月 (nigatsu)= -5426.573459
+11. 5月 (gogatsu)= -5429.418576
+12. 6月 (rokugatsu)= -5552.244934
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14618.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 5月 (gogatsu)= -3248.282940
+ 2. 3月 (saNgatsu)= -3685.463008
+ 3. 8月 (hachigatsu)= -3761.705152
+ 4. 9月 (kugatsu)= -3813.691873
+ 5. 6月 (rokugatsu)= -3863.593443
+ 6. 2月 (nigatsu)= -4243.897768
+ 7. 1月 (ichigatsu)= -4263.882941
+ 8. 4月 (shigatsu)= -4298.550216
+ 9. 11月 (juuichigatsu)= -4345.342211
+10. 12月 (juunigatsu)= -4422.960170
+11. 10月 (juugatsu)= -4456.856714
+12. 7月 (shichigatsu)= -4555.966302
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14671.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 6月 (rokugatsu)= -3267.197416
+ 2. 8月 (hachigatsu)= -3285.631361
+ 3. 3月 (saNgatsu)= -3522.353701
+ 4. 5月 (gogatsu)= -3625.917105
+ 5. 4月 (shigatsu)= -3708.106722
+ 6. 11月 (juuichigatsu)= -3710.209097
+ 7. 1月 (ichigatsu)= -3755.869967
+ 8. 9月 (kugatsu)= -3779.893150
+ 9. 2月 (nigatsu)= -3842.964100
+10. 10月 (juugatsu)= -3863.439814
+11. 12月 (juunigatsu)= -3904.070483
+12. 7月 (shichigatsu)= -4257.187558
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14691.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 8月 (hachigatsu)= -4506.614035
+ 2. 7月 (shichigatsu)= -4696.239575
+ 3. 1月 (ichigatsu)= -4746.680285
+ 4. 9月 (kugatsu)= -4785.573952
+ 5. 10月 (juugatsu)= -4816.988457
+ 6. 4月 (shigatsu)= -4974.954459
+ 7. 2月 (nigatsu)= -5241.026044
+ 8. 3月 (saNgatsu)= -5325.631610
+ 9. 12月 (juunigatsu)= -5327.800523
+10. 6月 (rokugatsu)= -5341.624233
+11. 11月 (juuichigatsu)= -5361.325067
+12. 5月 (gogatsu)= -5372.413719
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14721.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 8月 (hachigatsu)= -7324.948125
+ 2. 9月 (kugatsu)= -8162.133999
+ 3. 5月 (gogatsu)= -8290.577570
+ 4. 1月 (ichigatsu)= -8399.991257
+ 5. 4月 (shigatsu)= -8437.230957
+ 6. 3月 (saNgatsu)= -8447.654117
+ 7. 10月 (juugatsu)= -8642.456060
+ 8. 2月 (nigatsu)= -8666.778738
+ 9. 6月 (rokugatsu)= -8678.976126
+10. 7月 (shichigatsu)= -8702.051497
+11. 11月 (juuichigatsu)= -8982.517561
+12. 12月 (juunigatsu)= -9615.838500
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14833.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 9月 (kugatsu)= -3331.028755
+ 2. 8月 (hachigatsu)= -3365.108418
+ 3. 6月 (rokugatsu)= -3613.002365
+ 4. 5月 (gogatsu)= -3676.435282
+ 5. 3月 (saNgatsu)= -3680.486466
+ 6. 2月 (nigatsu)= -3781.600568
+ 7. 10月 (juugatsu)= -3811.424442
+ 8. 12月 (juunigatsu)= -3871.297687
+ 9. 1月 (ichigatsu)= -3903.892063
+10. 4月 (shigatsu)= -3944.426306
+11. 7月 (shichigatsu)= -4051.147830
+12. 11月 (juuichigatsu)= -4115.072830
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14864.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 10月 (juugatsu)= -4366.956988
+ 2. 8月 (hachigatsu)= -4415.505122
+ 3. 12月 (juunigatsu)= -4478.223645
+ 4. 1月 (ichigatsu)= -4545.229750
+ 5. 4月 (shigatsu)= -4704.161300
+ 6. 7月 (shichigatsu)= -4750.099889
+ 7. 9月 (kugatsu)= -4801.515610
+ 8. 11月 (juuichigatsu)= -4826.488962
+ 9. 5月 (gogatsu)= -5070.490074
+10. 2月 (nigatsu)= -5282.401641
+11. 6月 (rokugatsu)= -5317.375607
+12. 3月 (saNgatsu)= -5371.308615
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14930.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 11月 (juuichigatsu)= -5824.199871
+ 2. 8月 (hachigatsu)= -5970.108303
+ 3. 12月 (juunigatsu)= -5991.459168
+ 4. 10月 (juugatsu)= -6105.609809
+ 5. 1月 (ichigatsu)= -6217.722605
+ 6. 4月 (shigatsu)= -6376.903771
+ 7. 9月 (kugatsu)= -6386.192462
+ 8. 6月 (rokugatsu)= -6398.929588
+ 9. 7月 (shichigatsu)= -6541.486991
+10. 2月 (nigatsu)= -6708.127839
+11. 5月 (gogatsu)= -6749.675014
+12. 3月 (saNgatsu)= -6834.264915
+
+Hangup   
+Returnキーを押してください
+Isolated Word Recogition On-The-Fly
+rec WARN alsa: can't encode 0-bit Unknown or not applicable
+vad_file= vadwav/14950.wav
+--------------------
+rank word (kana)= log-likelihood
+--------------------
+ 1. 12月 (juunigatsu)= -4621.400387
+ 2. 8月 (hachigatsu)= -4657.484458
+ 3. 10月 (juugatsu)= -4767.474007
+ 4. 4月 (shigatsu)= -4953.286698
+ 5. 1月 (ichigatsu)= -4958.697464
+ 6. 11月 (juuichigatsu)= -4987.933773
+ 7. 9月 (kugatsu)= -5005.847021
+ 8. 3月 (saNgatsu)= -5206.028349
+ 9. 7月 (shichigatsu)= -5271.174690
+10. 5月 (gogatsu)= -5330.628443
+11. 6月 (rokugatsu)= -5350.026655
+12. 2月 (nigatsu)= -5390.020200
+
+Hangup   
